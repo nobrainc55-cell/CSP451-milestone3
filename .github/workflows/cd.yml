@@ -1,0 +1,25 @@
+name: CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Build Docker image
+        run: echo "Building Docker image..."
+
+      - name: Login to ACR
+        run: echo "Logging into Azure Container Registry..."
+
+      - name: Push image
+        run: echo "Pushing image to ACR..."
+
+      - name: Deploy to Azure
+        run: echo "Deploying to Azure Container Apps..."
